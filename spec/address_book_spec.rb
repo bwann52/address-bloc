@@ -37,4 +37,25 @@ RSpec.describe AddressBook do
         end
     end
     
+    #assignemnt
+    describe "#remove_entry" do
+        it "remove one entry to the address book" do
+            book = AddressBook.new
+            book.add_entry("A", "B", "C@gmail.com")
+            
+            name = "Ada Lovelace"
+            phone_number = "010.012.1815"
+            email_address = "augusta.king@lovelace.com"
+            book.add_entry(name, phone_number, email_address)
+            
+            expect(book.entries.size).to eq(2)
+            
+            book.remove_entry(name, phone_number, email_address)
+            expect(book.entries.size).to eq(1)
+            expect(book.entries.first.name).to eq("A") #check the correct one remains
+
+        end
+    end
+    
+    
 end
