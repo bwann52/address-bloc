@@ -108,5 +108,11 @@ end
             entry_five = book.entries[4]
         end
     end
-    
+    context "import from 2nd csv" do
+        it "imports from 2nd cvs correct" do
+            book.import_from_csv("entries_2.csv")
+            expect(book.entries.size).to eq 3
+    end
+
+    end
 end
